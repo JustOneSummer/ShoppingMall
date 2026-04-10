@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="yellow">#FFFF00</color>
+    <color name="light_blue">#ADD8E6</color>
+    <color name="light_blue_2">#E0F3FF</color>
+    <color name="light_blue_3">#E6F3FF</color>
+    <color name="red">#FF0000</color>
+<!--    金色-->
+    <color name="light_gold">#F3E5AB</color>
+    <color name="gold">#FFD700</color>
+    <color name="dark_gold">#DAA520</color>
+    <color name="champagne_gold">#F7E7CE</color>
+    <color name="rose_gold">#B76E79</color>
+    <color name="pale_gold">#E6C87A</color>
+    <color name="satin_gold">#C9A84C</color>
+    <color name="old_gold">#CFB53B</color>
+</resources>
