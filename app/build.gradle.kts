@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.room3)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
 android {
@@ -48,6 +49,7 @@ room3 {
 }
 
 dependencies {
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -74,10 +76,12 @@ dependencies {
     implementation(libs.smartRefreshLayout.refresh.footer.ball)
     implementation(libs.smartRefreshLayout.refresh.footer.classics)
     implementation(libs.glide)
+    implementation(libs.glide.transformations)
     implementation(libs.androidx.room3.runtime)
     //使用 ksp
 //    implementation(libs.androidx.room3.compiler)
     ksp(libs.androidx.room3.compiler)
+    implementation(libs.kotlinx.json)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

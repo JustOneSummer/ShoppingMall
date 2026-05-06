@@ -1,5 +1,6 @@
 package com.shinoaki.shoppingmall.ui.activity.fragment.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshListener
 import com.shinoaki.shoppingmall.adapter.LatestFragmentMenuAdapter
 import com.shinoaki.shoppingmall.databinding.FragmentLatestBinding
 import com.shinoaki.shoppingmall.service.HomeByLatestFragmentDataService
+import com.shinoaki.shoppingmall.ui.activity.ProductDetailsActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -94,6 +96,13 @@ class LatestFragment : Fragment() {
                     }
                 }
             }
+        }
+        //监听点击商品
+        adapter.setOnItemClickListener { item, i ->
+            //跳转到商品详情页面
+            val intent = Intent(requireContext(), ProductDetailsActivity::class.java)
+            intent.putExtra("productId", item.id)
+            startActivity(intent)
         }
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShoppingMall</string>
+    <string name="app_name">购物商城</string>
     <string name="title_activity_navigation_bar">NavigationBarActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -16,6 +16,7 @@ import com.google.android.material.textview.MaterialTextView
 import com.shinoaki.shoppingmall.R
 import com.shinoaki.shoppingmall.data.HotFragmentRightMenuItem
 import com.shinoaki.shoppingmall.data.PageResponse
+import com.shinoaki.shoppingmall.data.RecommendFragmentRightMenuItem
 
 class HotFragmentRightMenuAdapter(var items: List<HotFragmentRightMenuItem>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -66,6 +67,10 @@ class HotFragmentRightMenuAdapter(var items: List<HotFragmentRightMenuItem>) :
             items = newItems.data
             diffResult.dispatchUpdatesTo(this)
         }
+    }
+
+    public fun setOnItemClickListener(listener: (HotFragmentRightMenuItem, Int) -> Unit) {
+        onItemClickListener = listener
     }
 
     // 返回数据数量

@@ -3,7 +3,9 @@ package com.shinoaki.shoppingmall.entity
 import androidx.room3.ColumnInfo
 import androidx.room3.Entity
 import androidx.room3.PrimaryKey
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Entity(tableName = "cart")
 data class CarEntity(
     @PrimaryKey(autoGenerate = true)

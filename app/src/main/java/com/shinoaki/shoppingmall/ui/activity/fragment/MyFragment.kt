@@ -10,7 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.shinoaki.shoppingmall.data.LoginDataStoreManager
 import com.shinoaki.shoppingmall.databinding.FragmentMyBinding
+import com.shinoaki.shoppingmall.ui.activity.AboutActivity
+import com.shinoaki.shoppingmall.ui.activity.DeliveryAddressActivity
 import com.shinoaki.shoppingmall.ui.activity.login.LoginActivity
+import com.shinoaki.shoppingmall.ui.activity.pass.ChangePasswordActivity
+import com.shinoaki.shoppingmall.utils.DialogUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -34,15 +38,33 @@ class MyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //显示当前获取的用户名
+        lifecycleScope.launch(Dispatchers.IO) {
+            binding.tvUserName.text = userDataStoreManager.getUserEmail()
+        }
+        //修改密码
+        binding.layoutChangePassword.setOnClickListener {
+            startActivity(Intent(requireContext(), ChangePasswordActivity::class.java))
+        }
         binding.logout.setOnClickListener {
-            lifecycleScope.launch(Dispatchers.IO) {
-                userDataStoreManager.logout()
-                withContext(Dispatchers.Main) {
-                    //提示注销成功
-                    Toast.makeText(requireContext(), "注销成功", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(requireContext(), LoginActivity::class.java))
+            DialogUtil.showConfirmDialog(requireContext(), "提示", "确定注销登录吗?") {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    userDataStoreManager.logout()
+                    withContext(Dispatchers.Main) {
+                        //提示注销成功
+                        Toast.makeText(requireContext(), "注销成功", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(requireContext(), LoginActivity::class.java))
+                    }
                 }
             }
+        }
+        //关于
+        binding.layoutSystemApp.setOnClickListener {
+            startActivity(Intent(requireContext(), AboutActivity::class.java))
+        }
+        //收货地址
+        binding.layoutAddress.setOnClickListener {
+            startActivity(Intent(requireContext(), DeliveryAddressActivity::class.java))
         }
     }
 }

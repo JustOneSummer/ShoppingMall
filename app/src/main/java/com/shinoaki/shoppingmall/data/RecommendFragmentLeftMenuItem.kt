@@ -1,5 +1,8 @@
 package com.shinoaki.shoppingmall.data
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class RecommendFragmentLeftMenuItem(
     val id: Int,
     val title: String,
@@ -7,6 +10,7 @@ data class RecommendFragmentLeftMenuItem(
     var isSelected: Boolean = false
 )
 
+@Serializable
 data class RecommendFragmentRightMenuItem(
     val id: Int,
     val title: String,

@@ -1,5 +1,6 @@
 package com.shinoaki.shoppingmall.ui.activity.fragment.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import com.shinoaki.shoppingmall.adapter.HotFragmentLeftMenuAdapter
 import com.shinoaki.shoppingmall.adapter.HotFragmentRightMenuAdapter
 import com.shinoaki.shoppingmall.databinding.FragmentHotBinding
 import com.shinoaki.shoppingmall.service.HomeByHotFragmentDataService
+import com.shinoaki.shoppingmall.ui.activity.ProductDetailsActivity
 import kotlin.random.Random
 
 
@@ -73,6 +75,14 @@ class HotFragment : Fragment() {
         }
         //下拉刷新 监听
         binding.swipeRefreshLayout.setOnRefreshListener { refreshData() }
+
+        //监听点击商品
+        rightAdapter.setOnItemClickListener { item, i ->
+            //跳转到商品详情页面
+            val intent = Intent(requireContext(), ProductDetailsActivity::class.java)
+            intent.putExtra("productId", item.id)
+            startActivity(intent)
+        }
     }
 
     private fun refreshData() {

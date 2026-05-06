@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 选中状态：圆形背景 + 对勾 -->
+    <item android:state_checked="true">
+        <layer-list>
+            <!-- 圆形背景 -->
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@color/red" />
+                    <size android:width="20dp" android:height="20dp" />
+                </shape>
+            </item>
+            <!-- 对勾 -->
+            <item>
+                <bitmap
+                    android:src="@drawable/ic_check_white"
+                    android:gravity="center" />
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- 未选中状态：空心圆 -->
+    <item android:state_checked="false">
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" />
+            <stroke android:width="2dp" android:color="@color/light_blue" />
+            <size android:width="20dp" android:height="20dp" />
+        </shape>
+    </item>
+</selector>

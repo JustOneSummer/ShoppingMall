@@ -9,11 +9,20 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/arona_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/arona_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoppingMall">
+        <activity
+            android:name=".ui.activity.DeliveryAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.pass.ChangePasswordActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.activity.ProductDetailsActivity"
             android:exported="false" />
@@ -33,6 +42,9 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

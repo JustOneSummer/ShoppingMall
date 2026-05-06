@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
 import com.shinoaki.shoppingmall.R
 import com.shinoaki.shoppingmall.data.LatestFragmentMenuItem
+import com.shinoaki.shoppingmall.data.RecommendFragmentRightMenuItem
 
 class LatestFragmentMenuAdapter(
 
@@ -47,6 +48,10 @@ class LatestFragmentMenuAdapter(
         } else {
             layoutParams?.topMargin = 6.dpToPx()
         }
+    }
+
+    public fun setOnItemClickListener(listener: (LatestFragmentMenuItem, Int) -> Unit) {
+        onItemClickListener = listener
     }
 
     // dp 转 px 扩展函数
